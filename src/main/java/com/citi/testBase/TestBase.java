@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -21,7 +22,10 @@ public class TestBase {
 	public static Properties prop;
 	public static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
-
+/*
+ * This is a Parent class of page and test classes--> 
+ * Define common browser properties here
+ */
 	public TestBase() {
 		try {
 			prop = new Properties();
@@ -43,14 +47,11 @@ public class TestBase {
 		System.out.println("BrowserName:" + browserName);
 		if (browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
-			/*
-			 * System.setProperty("webdriver.chrome.driver",
-			 * "C:\\Users\\DELL\\eclipse-workspace\\NaveenAssignments\\chromedriver.exe");
-			 */
+			
 			driver = new ChromeDriver();
+			System.out.println("instanxce created: "+ driver.getCurrentUrl());
 		} else if (browserName.equals("FireFox")) {
-			// System.setProperty("webdriver.gecko.driver",
-			// "C:\\Users\\DELL\\eclipse-workspace\\Java1\\geckodriver.exe");
+			
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
@@ -67,6 +68,7 @@ public class TestBase {
 		String url = prop.getProperty("url");
 		System.out.println(url);
 		driver.get(url);
+		driver.findElement(By.xpath("//button[@type='submit' and contains(text(),'Save my preferences')]")).click();
 
 	}
 }

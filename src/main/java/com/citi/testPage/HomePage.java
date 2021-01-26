@@ -1,24 +1,26 @@
 package com.citi.testPage;
 
-import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.citi.testBase.TestBase;
 
+/*
+ * This is POM Home Page Claas 
+ */
 public class HomePage extends TestBase {
+	
+	//Devie All Web Elements as Centralize Repository
 	@FindBy(xpath = "//input[@type='text']")
 	WebElement searchField;
 
 	@FindBy(xpath = "//button[@value='Search']")
 	WebElement searchBtn;
 
-	
+	@FindBy(xpath = "//h1[contains(text(),'London')]")
+	WebElement headertext;
 
 	// Initializing the Page Objects:
 	public HomePage() {
@@ -37,7 +39,8 @@ public class HomePage extends TestBase {
 		searchBtn.click();
 	}
 
-	
-
+	public String getHeadingText() {
+		return headertext.getText();
 	}
 
+}

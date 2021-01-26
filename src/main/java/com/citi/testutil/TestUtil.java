@@ -44,20 +44,7 @@ public class TestUtil extends TestBase {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	public static void ScrollDownComplete() {
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		// System.out.println("Scroll down completly to load all elements...");
 
-		for (int i = 0; i < 10; i++) {
-
-			je.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
-		}
 	}
 
 }

@@ -17,7 +17,9 @@ import org.testng.xml.XmlSuite;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-
+/*
+ * This is an extent Reports Listner util Class 
+ */
 public class ExtentReporterNG implements IReporter {
 	private ExtentReports extent;
 
