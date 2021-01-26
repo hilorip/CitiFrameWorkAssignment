@@ -1,5 +1,6 @@
 package com.citi.testcases;
 
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -7,9 +8,11 @@ import org.testng.annotations.Test;
 
 import com.citi.testBase.TestBase;
 import com.citi.testPage.HomePage;
-
+/*
+ * This is Home Page Test Class Define All required test cases of home page 
+ */
 class HomePageTestCase extends TestBase {
-	HomePage homepage;
+	public static HomePage homepage;
 
 	public HomePageTestCase() {
 		super();
@@ -18,7 +21,7 @@ class HomePageTestCase extends TestBase {
 	@BeforeMethod
 	public void setUp() {
 		initialization();
-		// driver.switchTo().alert().accept();
+		
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -28,12 +31,7 @@ class HomePageTestCase extends TestBase {
 		homepage = new HomePage();
 
 		homepage.serch("London");
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 
 	@Test
@@ -42,14 +40,17 @@ class HomePageTestCase extends TestBase {
 		String title = homepage.verifyHomePageTitle();
 		Assert.assertEquals(title, "cc");
 	}
-
 	@Test
-	public void mydemotest2() {
-		System.out.println("this is just a positive test case");
+	public void testHeaderText()
+	{
+	String text=	homepage.getHeadingText();
+	Assert.assertEquals(text, "Property for sale in London");
 	}
 
 	@AfterMethod
-	public void teardoen() {
+	public void tearDown()
+	{
 		driver.quit();
 	}
+	
 }
