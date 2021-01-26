@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="citi Session Test suite">
+	
+	<listeners>
+		<listener class-name="com.citi.listener.ExtentReporterNG" />
+	</listeners>
+
+
+	<test name="citi Testcases">
+		<classes>
+			<class name="com.citi.testcases.HomePageTestCase"></class>
+			
+		</classes>
+	</test>
+
+
+
+</suite>
