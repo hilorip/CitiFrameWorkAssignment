@@ -1,6 +1,7 @@
 package com.citi.testcases;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -43,9 +44,12 @@ class HomePageTestCase extends TestBase {
 	}
 
 	@Test
-	public void mydemotest2()
-	{
+	public void mydemotest2() {
 		System.out.println("this is just a positive test case");
 	}
-	
+
+	@AfterMethod
+	public void teardoen() {
+		driver.quit();
+	}
 }
